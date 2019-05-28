@@ -42,6 +42,11 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
+        $employee = new Employee();
+        $employee->fill($request->all());
+        $employee->save();
+        return response()->json(['success'=>true, 'result'=>'Employee created succesfully', 'employee'=> $employee]);
+
     }
 
     /**

@@ -51,24 +51,24 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
-                                <input type="text" class="form-control" id="first_name" placeholder="Enter First Name">
+                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name">
                             </div>
                             <div class="form-group">
                                 <label for="middle_name">Middle Name</label>
-                                <input type="text" class="form-control" id="middle_name"
+                                <input type="text" class="form-control" name="middle_name" id="middle_name"
                                        placeholder="Enter Middle Name">
                             </div>
                             <div class="form-group">
                                 <label for="last_name">Last Name</label>
-                                <input type="text" class="form-control" id="last_name" placeholder="Enter Last Name">
+                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name">
                             </div>
                             <div class="form-group">
                                 <label for="designition">Designition</label>
-                                <input type="text" class="form-control" id="designition" placeholder="Designition">
+                                <input type="text" class="form-control" name="designation" id="designation" placeholder="Designition">
                             </div>
                             <div class="form-group">
                                 <label for="last_name">Date of Joining</label>
-                                <input type="date" class="form-control" id="doj" placeholder="Date of Joining">
+                                <input type="date" class="form-control" name="doj" id="doj" placeholder="Date of Joining">
                             </div>
                         </div>
                         <div class="modal-footer">
