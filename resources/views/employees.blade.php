@@ -17,7 +17,7 @@
                     <tr>
                         <td>Employee ID</td>
                         <td>Employee Name</td>
-                        <td>Designtion</td>
+                        <td>Designation</td>
                         <td>Hire Date</td>
                         <td>Action</td>
                     </tr>
@@ -94,6 +94,8 @@
                 data: formData,
                 success: function (data) {
                     console.log(data);
+                    $('#createEmp').modal('hide');
+                    window.location.href="/employees"
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR.status);
