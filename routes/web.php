@@ -19,3 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/employees', 'EmployeeController@index')->name('employees');
+
+Route::get('/employees/create', 'EmployeeController@create');
