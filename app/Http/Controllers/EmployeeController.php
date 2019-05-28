@@ -13,7 +13,8 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
     // Restrict viewing without log in
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
@@ -42,11 +43,20 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'last_name' => 'required',
+            'designation'=>'required',
+            'doj'=>'required|date_format:Y-m-d',
+
+        ]);
+
         $employee = new Employee();
         $employee->fill($request->all());
         $employee->save();
-        return response()->json(['success'=>true, 'result'=>'Employee created succesfully', 'employee'=> $employee]);
-        
+        return response()->json(['success' => true, 'result' => 'Employee created succesfully', 'employee' => $employee]);
+
 
     }
 

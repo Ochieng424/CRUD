@@ -51,24 +51,33 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter First Name">
+                                <input type="text" class="form-control" name="first_name" id="first_name"
+                                       placeholder="Enter First Name">
+                                <span class="text-danger"><strong id="first_name-error"></strong></span>
                             </div>
                             <div class="form-group">
                                 <label for="middle_name">Middle Name</label>
                                 <input type="text" class="form-control" name="middle_name" id="middle_name"
                                        placeholder="Enter Middle Name">
+                                <span class="text-danger"><strong id="middle_name-error"></strong></span>
                             </div>
                             <div class="form-group">
                                 <label for="last_name">Last Name</label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Enter Last Name">
+                                <input type="text" class="form-control" name="last_name" id="last_name"
+                                       placeholder="Enter Last Name">
+                                <span class="text-danger"><strong id="last_name-error"></strong></span>
                             </div>
                             <div class="form-group">
                                 <label for="designition">Designition</label>
-                                <input type="text" class="form-control" name="designation" id="designation" placeholder="Designition">
+                                <input type="text" class="form-control" name="designation" id="designation"
+                                       placeholder="Designition">
+                                <span class="text-danger"><strong id="designation-error"></strong></span>
                             </div>
                             <div class="form-group">
                                 <label for="last_name">Date of Joining</label>
-                                <input type="date" class="form-control" name="doj" id="doj" placeholder="Date of Joining">
+                                <input type="date" class="form-control" name="doj" id="doj"
+                                       placeholder="Date of Joining">
+                                <span class="text-danger"><strong id="doj-error"></strong></span>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -95,10 +104,29 @@
                 success: function (data) {
                     console.log(data);
                     $('#createEmp').modal('hide');
-                    window.location.href="/employees"
+                    window.location.href = "/employees"
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(jqXHR.status);
+                    data = jqXHR.responseJSON;
+                    if (data.errors) {
+                        if (data.errors.first_name) {
+                            $('#first_name-error').html(data.errors.first_name[0]);
+                        }
+                        if (data.errors.first_name) {
+                            $('#middle_name-error').html(data.errors.middle_name[0]);
+                        }
+                        if (data.errors.first_name) {
+                            $('#last_name-error').html(data.errors.last_name[0]);
+                        }
+                        if (data.errors.first_name) {
+                            $('#designation-error').html(data.errors.designation[0]);
+                        }
+                        if (data.errors.first_name) {
+                            $('#doj-error').html(data.errors.doj[0]);
+                        }
+                    }
+
                 }
             });
         });
