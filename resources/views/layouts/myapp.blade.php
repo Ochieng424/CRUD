@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('employees') }}" class="nav-link">
+                                <a href="{{ route('employees.index') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>Employees</p>
                                 </a>
@@ -170,6 +170,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 <!-- Scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
+@yield('script')
 </body>
 </html>

@@ -48,6 +48,7 @@
                     </div>
                     <form role="form" id="empform" action="">
                         <div class="modal-body">
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="first_name">First Name</label>
                                 <input type="text" class="form-control" id="first_name" placeholder="Enter First Name">
@@ -71,11 +72,33 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" id="btn_submit" class="btn btn-primary">Save</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+    <script>
+        $('body').on('click', '#btn_submit', function (e) {
+            e.preventDefault();
+            var employeeForm = $("#empform");
+            var formData = employeeForm.serialize();
+
+            $.ajax({
+                url: "/employees",
+                type: 'POST',
+                data: formData,
+                success: function (data) {
+                    console.log(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR.status);
+                }
+            });
+        });
+    </script>
 @endsection
