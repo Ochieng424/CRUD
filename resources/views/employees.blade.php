@@ -92,10 +92,23 @@
 
 @section('script')
     <script>
+        $('#createEmp').on('show.bs.modal', function (e) {
+            $('#first_name-error').html("");
+            $('#middle_name-error').html("");
+            $('#last_name-error').html("");
+            $('#designation-error').html("");
+            $('#doj-error').html("");
+        });
+
         $('body').on('click', '#btn_submit', function (e) {
             e.preventDefault();
             var employeeForm = $("#empform");
             var formData = employeeForm.serialize();
+            $('#first_name-error').html("");
+            $('#middle_name-error').html("");
+            $('#last_name-error').html("");
+            $('#designation-error').html("");
+            $('#doj-error').html("");
 
             $.ajax({
                 url: "/employees",
@@ -113,16 +126,16 @@
                         if (data.errors.first_name) {
                             $('#first_name-error').html(data.errors.first_name[0]);
                         }
-                        if (data.errors.first_name) {
+                        if (data.errors.middle_name) {
                             $('#middle_name-error').html(data.errors.middle_name[0]);
                         }
-                        if (data.errors.first_name) {
+                        if (data.errors.last_name) {
                             $('#last_name-error').html(data.errors.last_name[0]);
                         }
-                        if (data.errors.first_name) {
+                        if (data.errors.designation) {
                             $('#designation-error').html(data.errors.designation[0]);
                         }
-                        if (data.errors.first_name) {
+                        if (data.errors.doj) {
                             $('#doj-error').html(data.errors.doj[0]);
                         }
                     }

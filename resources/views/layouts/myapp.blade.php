@@ -132,6 +132,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <p>Employees</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('units') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Add Unit</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

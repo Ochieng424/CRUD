@@ -23,6 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/employees/create', 'EmployeeController@create');
 //Route::post('/employees/', 'EmployeeController@store');
 
+Route::get('/units', 'UnitController@index')->name('units');
+
 Route::resources([
     'employees'=> 'EmployeeController',
 ]);
