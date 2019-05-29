@@ -24,6 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('/employees/', 'EmployeeController@store');
 
 Route::get('/units', 'UnitController@index')->name('units');
+Route::post('','UnitController@store');
 
 Route::resources([
     'employees'=> 'EmployeeController',

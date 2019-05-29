@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Unit;
 use Illuminate\Http\Request;
+use App\Employee;
 
 class UnitController extends Controller
 {
@@ -12,10 +13,17 @@ class UnitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
-        return view('units');
+        $employees = Employee::all();
+        return view('units', compact('employees'));
     }
 
     /**
@@ -31,18 +39,40 @@ class UnitController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
+        $validation = $request->validate([
+            'property' => 'required',
+            'room_no' => 'required',
+            'unit_type' => 'required',
+            'square_feet' => 'required',
+            'price' => 'required',
+            'available' => 'required',
+
+        ]);
+
+        $unit = new Unit();
+
+        $unit->employee_id = $request->input('property');
+        $unit->room_no = $request->input('room_no');
+        $unit->unit_type = $request->input('unit_type');
+        $unit->square_feet = $request->input('square_feet');
+        $unit->price = $request->input('price');
+        $unit->available = $request->input('available');
+
+        $unit->save();
+
+        return redirect('/units')->with('success', 'Unit added successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Unit  $unit
+     * @param  \App\Unit $unit
      * @return \Illuminate\Http\Response
      */
     public function show(Unit $unit)
@@ -53,7 +83,7 @@ class UnitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Unit  $unit
+     * @param  \App\Unit $unit
      * @return \Illuminate\Http\Response
      */
     public function edit(Unit $unit)
@@ -64,8 +94,8 @@ class UnitController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Unit  $unit
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Unit $unit
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Unit $unit)
@@ -76,7 +106,7 @@ class UnitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Unit  $unit
+     * @param  \App\Unit $unit
      * @return \Illuminate\Http\Response
      */
     public function destroy(Unit $unit)

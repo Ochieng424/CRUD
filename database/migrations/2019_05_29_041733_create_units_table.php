@@ -13,14 +13,15 @@ class CreateUnitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('units', function (Blueprint $table) {
+        Schema::create('my_units', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('my_employees');
             $table->string('room_no');
-            $table->boolean('available');
+            $table->string('available');
+            $table->string('unit_type');
             $table->integer('square_feet');
-            $table->longText('description');
+            $table->decimal('price',9,2);
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateUnitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('units');
+        Schema::dropIfExists('my_units');
     }
 }
