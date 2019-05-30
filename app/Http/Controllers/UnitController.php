@@ -86,9 +86,10 @@ class UnitController extends Controller
      * @param  \App\Unit $unit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Unit $unit)
+    public function edit($id)
     {
-        //
+        $unit = Unit::find($id);
+        return view('edit-unit', compact('unit'));
     }
 
     /**
@@ -98,9 +99,16 @@ class UnitController extends Controller
      * @param  \App\Unit $unit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Unit $unit)
+    public function update(Request $request, $id)
     {
         //
+        $unit=Unit::find($id);
+        $unit->price = $request->input('price');
+        $unit->available = $request->input('available');
+
+        $unit->update();
+
+        return redirect('/employees')->with('success', 'Unit Updated Successfully');
     }
 
     /**

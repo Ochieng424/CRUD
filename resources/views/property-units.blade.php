@@ -15,23 +15,27 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
-                        <td>Unit ID</td>
-                        <td>Room Number</td>
-                        <td>Availability</td>
-                        <td>Unit Type</td>
-                        <td>Square Feet</td>
-                        <td>View Units</td>
+                        <td><strong>Room Number</strong></td>
+                        <td><strong>Unit Type</strong></td>
+                        <td><strong>Square Feet</strong></td>
+                        <td><strong>Price</strong></td>
+                        <td><strong>Availability</strong></td>
+                        <td><strong>Edit</strong></td>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($units as $unit)
                         <tr>
-                            <td>{{ $unit-> id }}</td>
                             <td>{{ $unit-> room_no }}</td>
-                            <td>{{ $unit-> available }}</td>
                             <td>{{ $unit-> unit_type }}</td>
                             <td>{{ $unit-> square_feet }}</td>
                             <td>{{ $unit-> price }}</td>
+                            <td>{{ $unit-> available }}</td>
+                            <td>
+                                <a href="{{ route('edit-unit', $unit-> id) }}">
+                                    <button type="button" class="btn btn-primary btn-sm">Edit Unit</button>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
