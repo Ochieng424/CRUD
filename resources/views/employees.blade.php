@@ -20,6 +20,7 @@
                         <td>Designation</td>
                         <td>Hire Date</td>
                         <td>Action</td>
+                        <td>View Units</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,11 @@
                             <td>{{ $emp-> designation }}</td>
                             <td>{{ $emp-> doj }}</td>
                             <td>Edit/Delete</td>
+                            <td>
+                                <a href="{{ route('property-units', $emp-> id) }}">
+                                    <button type="button" class="btn btn-primary btn-sm">View units</button>
+                                </a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>

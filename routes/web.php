@@ -29,3 +29,5 @@ Route::post('','UnitController@store');
 Route::resources([
     'employees'=> 'EmployeeController',
 ]);
+
+Route::get('/property-units/{id}', 'ViewUnitsController@index')->name('property-units');
