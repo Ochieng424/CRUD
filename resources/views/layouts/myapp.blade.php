@@ -138,6 +138,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <p>Add Unit</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('subscribe') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Subscribe</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('rate.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Rating</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('viewEmp.index') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>View</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

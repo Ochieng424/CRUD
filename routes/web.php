@@ -28,8 +28,16 @@ Route::post('','UnitController@store');
 
 Route::resources([
     'employees'=> 'EmployeeController',
+    'rate'=> 'RatingController',
+    'viewEmp'=> 'ViewEmpController',
 ]);
 
 Route::get('/property-units/{id}', 'ViewUnitsController@index')->name('property-units');
 Route::get('/edit-unit/{id}', 'UnitController@edit')->name('edit-unit');
 Route::put('/edit-unit/{id}', 'UnitController@update');
+
+Route::get('/subscribe', 'SubscriptionController@index')->name('subscribe');
+Route::post('/subscribe', 'SubscriptionController@store');
+
+//Route::get('/rate', 'RatingController@index')->name('rate');
+//Route::post('/rate.store', 'RatingController@store')->name('rate.store');

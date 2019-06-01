@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class Employee extends Model
 {
@@ -11,4 +12,6 @@ class Employee extends Model
 
     // All fields required
     protected $guarded = [];
+
+    use Rateable;
 }
