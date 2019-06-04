@@ -43,11 +43,13 @@
                                 <label for="available">Unit Type</label>
                                 <select class="form-control" id="unit_type" name="unit_type">
                                     <option disabled selected>--Select--</option>
-                                    <option value="single">Single</option>
-                                    <option value="bedsitter">BedSitter</option>
+                                    <option value="Single Room">Single Room</option>
+                                    <option value="Bedsitter">BedSitter</option>
                                     <option value="1 Bedroom">1 Bedroom</option>
                                     <option value="2 Bedroom">2 Bedroom</option>
                                     <option value="3 Bedroom">3 Bedroom</option>
+                                    <option value="4 Bedroom">4 Bedroom</option>
+                                    <option value="5 Bedroom">5 Bedroom</option>
                                 </select>
                             </div>
                             <div class="form-group">

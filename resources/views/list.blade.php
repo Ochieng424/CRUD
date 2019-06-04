@@ -16,7 +16,7 @@
                                 <p class="card-text" style="margin: 5px 0;"><strong>Type:</strong> {{ $unit-> unit_type }}</p>
                                 <p class="card-text" style="margin: 5px 0;"><strong>Price:</strong> ksh {{ $unit-> price }}</p>
                                 <p class="card-text" style="margin: 5px 0;"><strong>Square Feet:</strong> {{ $unit-> square_feet }}</p>
-                                <a href="#" class="btn btn-primary">
+                                <a href="{{ route('pay-option', $unit->id) }}" class="btn btn-primary">
                                     <i class="fa fa-home" style="font-size: 17px;"></i>
                                     Book Unit
                                 </a>

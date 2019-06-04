@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('/employees/', 'EmployeeController@store');
 
 Route::get('/units', 'UnitController@index')->name('units');
-Route::post('','UnitController@store');
+Route::post('/add-unit','UnitController@store');
 
 Route::resources([
     'employees'=> 'EmployeeController',
@@ -41,3 +41,9 @@ Route::post('/subscribe', 'SubscriptionController@store');
 
 //Route::get('/rate', 'RatingController@index')->name('rate');
 //Route::post('/rate.store', 'RatingController@store')->name('rate.store');
+
+Route::get('/pay-option/{id}', 'PayOptionController@index')->name('pay-option');
+Route::get('/mpesa-payment/{id}', 'MpesaPaymentController@index')->name('mpesa-payment');
+Route::post('','MpesaPaymentController@store');
+
+Route::get('/invoice', 'InvoiceController@index')->name('invoice');
