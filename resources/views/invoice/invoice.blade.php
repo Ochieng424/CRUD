@@ -18,7 +18,6 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
-                        <td>ID</td>
                         <td>Transaction ID</td>
                         <td>Payment Mode</td>
                         <td>Amount</td>
@@ -27,7 +26,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($Invoices as $key => $inv)
+                    @foreach($invoices as $inv)
                         <tr>
                             <td>{{ $inv['transaction_id'] }}</td>
                             <td>{{ $inv['payment_mode'] }}</td>

@@ -18,6 +18,7 @@ class InvoiceController extends Controller
     {
         $id = auth()->id();
         $my_invoice = MpesaPayment::where('user_id', $id)->get();
+        $invoices = array();
 
         foreach ($my_invoice as $invoice) {
 //            $unit = Unit::where('id', $invoice['unit_id'])->get();
@@ -30,7 +31,7 @@ class InvoiceController extends Controller
             $property_name = Employee::where('id', $employee_id)->value('first_name');
 //            $agent_name = Employee::where('id', $employee_id)->value('first_name');
 
-            $Invoices = array(
+            $invoice = array(
                 'amount' => $amount,
                 'transaction_id' => $transaction_id,
                 'payment_mode' => $payment_mode,
@@ -39,10 +40,12 @@ class InvoiceController extends Controller
 
             );
 
-            print_r($Invoices);
-
-            return view('invoice.invoice')->with(array('Invoices'=>$Invoices));
+            array_push($invoices, $invoice);
 
         }
+
+//        print_r($invoices);
+
+        return view('invoice.invoice')->with(array('invoices' => $invoices));
     }
 }
